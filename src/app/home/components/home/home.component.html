@@ -1,0 +1,57 @@
+<!-- Page Content-->
+<div class="container px-4 px-lg-5">
+  <!-- Heading Row-->
+  <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="./assets/images/electric_cars.jpeg"
+        alt="..." /></div>
+    <div class="col-lg-5">
+      <h1 class="font-weight-light">Sistema de Alquiler de Vehiculos SAC</h1>
+      <p>Somos lideres en la industría mundual de prestamo de vehiculos,
+         contamos con más de 10 años de participación en el mercado y fuimos pioneros
+         en la renta de carros electricos.
+      </p>
+      <a class="btn btn-primary" (click)="logIn()" *ngIf="!isLogin">Iniciar sesión con google</a>
+      <a class="btn btn-primary" (click)="logOut()" *ngIf="isLogin">Cerrar Sesión</a>
+    </div>
+  </div>
+  <!-- Call to Action-->
+  <app-map *ngIf="vehiculos.length > 0" [myLocation]="vehiculos"></app-map>
+  <div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body">
+      <p class="text-white m-0">Es una red de bicicletas que se creo para compartir entre todos aquellos amates de la
+        Bicicleta.</p>
+    </div>
+  </div>
+  <!-- Content Row-->
+  <div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Paseos</h2>
+          <p class="card-text">Son paseos programados, donde podras compartir con amigos y hacer nuevos</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Rutas</h2>
+          <p class="card-text">Los Fines de semana haremos ruta con al menos 120 KM de recorrido, Animate!!</p>
+        </div>
+        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Competencias!!</h2>
+          <p class="card-text">Las competencias nacionales son la cuspide, animate a ser un profesional en nuestro Club.
+          </p>
+        </div>
+        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->
