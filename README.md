@@ -5,3 +5,9 @@ front-end de los usuarios del sistema de alquiler de vehiculos, para el proyecto
 Especificaciones de desarrollo:
 * Angular
 * nodeJS
+
+Para ejecutar en localhost:
+  * git clone <link de referencia del proyecto>
+  * npm install en la raíz del proyecto
+  * npm start
+  * visualizar en http://localhost:4200/
