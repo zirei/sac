@@ -1,0 +1,17 @@
+.perfil-titles{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;    
+}
+.container-login{
+    text-align: center;
+    margin: 2rem;
+    display: block;
+    line-height: 3;
+}
+.container-logout{
+    text-align: center;
+    margin: 2rem;
+    display: block;
+    line-height: 3;
+}

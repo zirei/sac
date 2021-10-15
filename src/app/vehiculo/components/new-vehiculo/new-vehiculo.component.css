@@ -1,0 +1,12 @@
+/*  Formulario new vehiculo  */
+.input-group-text {
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+}
+.container-new-vehiculo {
+  margin: 5%;
+}
+.center-forms {
+  text-align: center;
+}

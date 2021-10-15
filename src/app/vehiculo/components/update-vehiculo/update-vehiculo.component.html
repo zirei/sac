@@ -1,0 +1,39 @@
+<!-- Formulario update-vehiculo -->
+<div class="container-new-vehiculo">
+  <h1 class="center-forms">Modificar Vehiculo</h1>
+  <br>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-id">ID</span>
+    <input type="text" class="form-control" aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default" [(ngModel)]="vehiculo.vehiculoId">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-color">Color</span>
+    <select class="form-select" aria-label="select example" [(ngModel)]="vehiculo.color">
+      <option [value]="color.text" *ngFor="let color of colors">
+        {{ color.text }}
+      </option>
+    </select>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-modelo">Modelo</span>
+    <select class="form-select" aria-label="select example" [(ngModel)]="vehiculo.modelo">
+      <option [value]="model.text" *ngFor="let model of models">
+        {{ model.text }}
+      </option>
+    </select>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-latitude">Latitud</span>
+    <input type="text" class="form-control" aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default" [(ngModel)]="vehiculo.latitude">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-longitude">Longitud</span>
+    <input type="text" class="form-control" aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default" [(ngModel)]="vehiculo.longitude">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3" (click)="updateVehiculo()" >Submit</button>
+  </div>
+</div>
