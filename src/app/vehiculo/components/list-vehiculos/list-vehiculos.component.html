@@ -2,7 +2,7 @@
 <div class="table-margin">
   <h1 class="center-forms">Lista de Vehiculos</h1>
   <br>
-  <button class="btn btn-primary mb-3" [routerLink]="['/vehiculo/new']">Crear Bicicleta</button>
+  <button class="btn btn-primary mb-3" *ngIf="isLogin" [routerLink]="['/vehiculo/new']">Crear Vehiculo</button>
   <table class="table table-dark table-striped">
     <thead>
       <tr>

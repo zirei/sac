@@ -52,17 +52,6 @@ export class HomeComponent implements OnInit {
       // })
     }
   }
-
-  logIn() {
-    this.authService.login();
-    alert(`Bienvenido: ${this.currentUser}`)
-  }
-
-  logOut() {
-    alert(`Hasta Pronto: ${this.currentUser}`)
-    this.authService.logout();
-    this.user = ''
-  }
   // makeMarkers(map: any, latitude: any, lon: any): void {
 
 

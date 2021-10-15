@@ -14,6 +14,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { CoreModule } from './core/core.module';
 import { AuthenticationService } from './core/services/authentication/authentication.service';
+import { DefaultModule } from './default/default.module';
+import { PerfilModule } from './perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AuthenticationService } from './core/services/authentication/authentica
     AngularFireAuthModule,
     vehiculoModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    DefaultModule,
+    PerfilModule
   ],
   providers: [
     MarkerService,

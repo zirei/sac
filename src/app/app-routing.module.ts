@@ -19,6 +19,14 @@ const routes: Routes = [
       {
         path: 'vehiculo',
         loadChildren: () => import('./vehiculo/vehiculo.module').then(m => m.vehiculoModule)
+      },
+      {
+        path: 'default',
+        loadChildren: () => import('./default/default.module').then(m => m.DefaultModule)
+      },
+      {
+        path: 'usuario',
+        loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilModule)
       }
     ],
   },

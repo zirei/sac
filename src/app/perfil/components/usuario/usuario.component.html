@@ -1,0 +1,17 @@
+<div *ngIf="!isLogin">
+    <div class="container-login">
+        <span class="perfil-titles"> Para acceder a la información del sitio, debe iniciar sesión:</span>
+        <a class="btn btn-primary" (click)="logIn()">Iniciar sesión con google</a>
+    </div>
+</div>
+<div *ngIf="isLogin">
+
+    <div class="container-logout">
+        <p>Bienvenido ...
+
+            contenido
+
+        </p>
+        <a class="btn btn-primary" (click)="logOut()" *ngIf="isLogin">Cerrar Sesión</a>
+    </div>
+</div>
