@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "redBicicletas": {
+    "sacVehiculos": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/redBicicletas",
+            "outputPath": "dist/sacVehiculos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "redBicicletas:build:production"
+              "browserTarget": "sacVehiculos:build:production"
             },
             "development": {
-              "browserTarget": "redBicicletas:build:development"
+              "browserTarget": "sacVehiculos:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "redBicicletas:build"
+            "browserTarget": "sacVehiculos:build"
           }
         },
         "test": {
@@ -112,5 +112,5 @@
       }
     }
   },
-  "defaultProject": "redBicicletas"
+  "defaultProject": "sacVehiculos"
 }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   vehiculoApi: 'https://obscure-plains-82299.herokuapp.com',
-  userApi: 'https://intense-garden-18122.herokuapp.com',
+  userApi: 'https://limitless-gorge-95066.herokuapp.com',
   geoApi: 'http://localhost:3002',
   firebaseConfig: {
     apiKey: "AIzaSyDUmTKS4UanGOuE1MeIHtEp7sOF2BbrCaQ",
