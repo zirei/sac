@@ -175,4 +175,8 @@ export class ListVehiculosComponent implements OnInit {
       alert(`Apreciado ${this.userName} usted no tiene permisos para realizar esta acción`)
     }
   }
+
+  alertmessage(){
+    alert(`Apreciado ${this.userName} usted no tiene permisos para realizar esta acción`)
+  }
 }
