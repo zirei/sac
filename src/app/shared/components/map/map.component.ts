@@ -2,15 +2,9 @@ import { Component, AfterViewInit, Input } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../../../core/services/marker/marker.service';
 
-// const iconUrl = 'assets/marker-icon.png';
-// const iconUrl2 = 'assets/images/estacion-de-carga.png';
-const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/images/coche-electrico.png';
-const shadowUrl = 'assets/marker-shadow.png';
 const iconCar = L.icon({
-  iconRetinaUrl,
   iconUrl,
-  shadowUrl,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -18,9 +12,7 @@ const iconCar = L.icon({
   shadowSize: [41, 41]
 });
 const iconStation = L.icon({
-  iconRetinaUrl,
   iconUrl: 'assets/images/estacion-de-carga.png',
-  shadowUrl,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
