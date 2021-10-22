@@ -96,6 +96,7 @@ export class ListVehiculosComponent implements OnInit {
   }
 
   updateUser() {
+    console.log("update ->", this.user)
     this.userService.update(this.user).subscribe(() => {})
   }
 
@@ -170,9 +171,6 @@ export class ListVehiculosComponent implements OnInit {
     }
   }
 
-  alertmessage(){
-    alert(`Apreciado ${this.userName} usted no tiene permisos para realizar esta acción`)
-  }
   beAdmin(){
     this.isAdmin = true;
   }

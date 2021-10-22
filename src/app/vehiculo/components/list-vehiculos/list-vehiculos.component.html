@@ -13,8 +13,8 @@
         <th scope="col">Ubicación</th>
         <th scope="col">Estado</th>
         <!-- <th scope="col">Detalles</th> -->
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
+        <th *ngIf="isAdmin" scope="col">Editar</th>
+        <th *ngIf="isAdmin" scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -25,12 +25,10 @@
         <td>{{vehiculo.longitude}},{{vehiculo.latitude}}</td>
         <td class="text-center px-1">
           <div class="text-clickeable" *ngIf="!vehiculo.userID" (click)="seleccionarVehiculo(vehiculo._id)">Disponible</div>
-          <div class="text-clickeable" *ngIf="vehiculo.userID" (click)="unSeleccionarVehiculo(vehiculo._id)">No disponible</div>
+          <div class="text-clickeable" *ngIf="vehiculo.userID  == currentUserID.userID" (click)="unSeleccionarVehiculo(vehiculo._id)">Entregar</div>
         </td>
-        <!-- <td class="text-clickeable" [routerLink]="['/vehiculo/', vehiculo._id, 'details']">Details</td> -->
         <td class="text-clickeable" *ngIf="isAdmin" [routerLink]="['/vehiculo/', vehiculo._id, 'update']">Update</td>
-        <td class="text-clickeable" *ngIf="!isAdmin" (click)="alertmessage()">Update</td>
-        <td class="text-clickeable" (click)="deleteVehiculo(vehiculo._id)">Eliminar</td>
+        <td class="text-clickeable" *ngIf="isAdmin" (click)="deleteVehiculo(vehiculo._id)">Eliminar</td>
       </tr>
     </tbody>
   </table>
