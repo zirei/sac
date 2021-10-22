@@ -71,10 +71,11 @@ export class MapComponent implements AfterViewInit {
 
   addMarkers() {
     this.myLocation.map((point) => {
-      this.addMarker(point.latitude, point.longitude)
+      if(point.userID == ''){
+        this.addMarker(point.latitude, point.longitude)
+      }
     })
     this.myChargeStation.map((point) => {
-      // console.log("stations ->" , point);
       this.addMarkerStation(point.dblLatitud, point.dblLongitud)
     })
   }
