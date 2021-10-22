@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Mail } from 'src/app/core/models/mail.model';
+import { Sms } from 'src/app/core/models/sms.model';
 import { User } from 'src/app/core/models/user.model';
 import { Vehiculo } from 'src/app/core/models/vehiculo.model';
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
+import { GeoService } from 'src/app/core/services/geo/geo.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { VehiculoService } from 'src/app/core/services/vehiculo/vehiculo.service';
 
@@ -14,6 +17,8 @@ export class ListVehiculosComponent implements OnInit {
 
   listVehiculos: any[];
   user: User;
+  mail: Mail;
+  sms: Sms;
   currentData: any;
   isLogin: boolean = false;
   isAdmin: boolean = false;
@@ -29,6 +34,7 @@ export class ListVehiculosComponent implements OnInit {
   constructor(
     private vehiculoService: VehiculoService,
     private userService: UserService,
+    private messageServices: GeoService,
     private authService: AuthenticationService,
   ) {
     this.user = {
@@ -40,6 +46,15 @@ export class ListVehiculosComponent implements OnInit {
       email: '',
     }
     this.listVehiculos = [];
+    this.mail = {
+      to: '',
+      subject: '',
+      text: '',
+    };
+    this.sms = {
+      sendTo: '',
+      message: ''
+    };
     this.getUserStatus();
   }
 
@@ -81,10 +96,9 @@ export class ListVehiculosComponent implements OnInit {
   }
 
   updateUser() {
-    this.userService.update(this.user).subscribe(() => {
-
-    })
+    this.userService.update(this.user).subscribe(() => {})
   }
+
   seleccionarVehiculo(vehiculoId: any) {
     this.isSendMessage = false;
     let index = this.listVehiculos.map((vehiculo: any) => vehiculo.userID).indexOf(this.currentUserID.userID)
@@ -100,6 +114,19 @@ export class ListVehiculosComponent implements OnInit {
           this.vehiculoService.update(this.currentData).subscribe(() => {
             alert(`Vehiculo ${this.currentData.vehiculoId} reservado con éxito al user: ${this.userName} con el id: ${this.currentData.userID}`)
           })
+          this.mail.to = this.user.email;
+          this.mail.subject = `Solicitud de prestamo del vehiculo: ${vehiculo.vehiculoId} aceptada`;
+          this.mail.text = `El vehiculo: ${vehiculo.vehiculoId}, modelo: ${vehiculo.modelo} esta a su disposición,  gracias por utilizar nuestros servicios`;    
+          this.messageServices.sendMail(this.mail).subscribe(() => {
+            console.log(" mail sended->", this.mail)
+          })
+          if(this.user.cel != ''){
+            this.sms.sendTo = this.user.cel;
+            this.sms.message = `Solicitud de prestamo del vehiculo: ${vehiculo.vehiculoId} aceptada`;
+            this.messageServices.sendSms(this.sms).subscribe(() => {
+              console.log(" sms sended->", this.sms)
+            })
+          }
           this.responseSelected = false;
         }
       }
@@ -117,6 +144,19 @@ export class ListVehiculosComponent implements OnInit {
         this.vehiculoService.update(vehiculoData).subscribe(() => {
           alert(`Vehiculo ${vehiculo.vehiculoId} ha sido entregado con exito gracias: ${this.userName}`)
         })
+        this.mail.to = this.user.email;
+        this.mail.subject = `Solicitud de entrega del vehiculo: ${vehiculo.vehiculoId} aceptada`;
+        this.mail.text = `El vehiculo: ${vehiculo.vehiculoId}, modelo: ${vehiculo.modelo} ha sido entregado satisfactoriamente, gracias por utilizar nuestros servicios`;
+        this.messageServices.sendMail(this.mail).subscribe(() => {
+          console.log(" mail sended->", this.mail)
+        })
+        if(this.user.cel != ''){
+          this.sms.sendTo = this.user.cel;
+          this.sms.message = `El vehiculo: ${vehiculo.vehiculoId} ha sido regresado satisfactoriamente`;
+          this.messageServices.sendSms(this.sms).subscribe(() => {
+            console.log(" sms sended->", this.sms)
+          })
+        }
         this.responseUnSelected = false;
       }
     })
@@ -134,7 +174,5 @@ export class ListVehiculosComponent implements OnInit {
     } else {
       alert(`Apreciado ${this.userName} usted no tiene permisos para realizar esta acción`)
     }
-
   }
-
 }

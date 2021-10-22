@@ -2,10 +2,12 @@ import { Component, AfterViewInit, Input } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../../../core/services/marker/marker.service';
 
+// const iconUrl = 'assets/marker-icon.png';
+// const iconUrl2 = 'assets/images/estacion-de-carga.png';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
-const iconUrl = 'assets/marker-icon.png';
+const iconUrl = 'assets/images/coche-electrico.png';
 const shadowUrl = 'assets/marker-shadow.png';
-const iconDefault = L.icon({
+const iconCar = L.icon({
   iconRetinaUrl,
   iconUrl,
   shadowUrl,
@@ -15,7 +17,17 @@ const iconDefault = L.icon({
   tooltipAnchor: [16, -28],
   shadowSize: [41, 41]
 });
-L.Marker.prototype.options.icon = iconDefault;
+const iconStation = L.icon({
+  iconRetinaUrl,
+  iconUrl: 'assets/images/estacion-de-carga.png',
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+// L.Marker.prototype.options.icon = iconCar;
 
 @Component({
   selector: 'app-map',
@@ -25,6 +37,7 @@ L.Marker.prototype.options.icon = iconDefault;
 export class MapComponent implements AfterViewInit {
 
   @Input() myLocation: any[] = [];
+  @Input() myChargeStation: any[] = [];
   private map: any;
 
   private initMap(): void {
@@ -50,12 +63,19 @@ export class MapComponent implements AfterViewInit {
   }
   
   addMarker(latitude: any, longitude: any) {
-    this.markerService.makeMarkers(this.map, latitude, longitude);
+    this.markerService.makeMarkers(this.map, latitude, longitude, iconCar);
+  }
+  addMarkerStation(latitude: any, longitude: any) {
+    this.markerService.makeMarkers(this.map, latitude, longitude, iconStation);
   }
 
   addMarkers() {
     this.myLocation.map((point) => {
       this.addMarker(point.latitude, point.longitude)
+    })
+    this.myChargeStation.map((point) => {
+      // console.log("stations ->" , point);
+      this.addMarkerStation(point.dblLatitud, point.dblLongitud)
     })
   }
 }

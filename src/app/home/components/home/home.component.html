@@ -13,7 +13,7 @@
     </div>
   </div>
   <!-- Call to Action-->
-  <app-map *ngIf="vehiculos.length > 0" [myLocation]="vehiculos"></app-map>
+  <app-map *ngIf="vehiculos.length > 0" [myLocation]="vehiculos" [myChargeStation]="chargeStations"></app-map>
   <div class="card text-white bg-secondary my-5 py-4 text-center">
     <div class="card-body">
       <p class="text-white m-0">Somos una red global de alquiler de vehículos que se creó para simplificar el arrendar autos y tener la mejor asistencia alrededor del mundo </p>
@@ -28,7 +28,7 @@
           <h2 class="card-title">Servicio de Grúa</h2>
           <p class="card-text">Si tienes alguna calamidad en el camino, tenemos un servicio confiable que se encargara de ir al sitio donde estes.</p>
         </div>
-        <div class="card-footer"><a class="btn btn-dark btn-sm" href="#!">More Info</a></div>
+        <div class="card-footer"><a class="btn btn-dark btn-sm" href="/usuario">Solicitar</a></div>
       </div>
     </div>
     <div class="col-md-4 mb-5">
