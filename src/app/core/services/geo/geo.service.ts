@@ -9,23 +9,23 @@ import { Geo } from '../../models/geo.model';
 export class GeoService {
   constructor(private http: HttpClient) { }
 
-  create(vehiculo: Geo) {
-    return this.http.post<any>(`${environment.geoApi}/rbgeoback`, vehiculo);
+  sendGrua(userData: Geo) {
+    return this.http.post<any>(`${environment.geoApi}:8090/truck/request`, userData);
   }
 
-  read() {
-    return this.http.get<any>(`${environment.geoApi}/rbgeoback`);
-  }
+  // read() {
+  //   return this.http.get<any>(`${environment.geoApi}/rbgeoback`);
+  // }
 
-  readById(vehiculoId: String) {
-    return this.http.get<any>(`${environment.geoApi}/rbgeoback/${vehiculoId}`);
-  }
+  // readById(vehiculoId: String) {
+  //   return this.http.get<any>(`${environment.geoApi}/rbgeoback/${vehiculoId}`);
+  // }
 
-  update(vehiculo: Geo) {
-    return this.http.put<any>(`${environment.geoApi}/rbgeoback/${vehiculo._id}`, vehiculo)
-  }
+  // update(vehiculo: Geo) {
+  //   return this.http.put<any>(`${environment.geoApi}/rbgeoback/${vehiculo._id}`, vehiculo)
+  // }
 
-  delete(id: String) {
-    return this.http.delete<any>(`${environment.geoApi}/rbgeoback/${id}`);
-  }
+  // delete(id: String) {
+  //   return this.http.delete<any>(`${environment.geoApi}/rbgeoback/${id}`);
+  // }
 }

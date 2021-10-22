@@ -35,7 +35,6 @@ export class DetailsVehiculoComponent implements OnInit {
   getVehiculoID() {
     this.route.params.subscribe((params: Params) => {
       this.vehiculoId = params.id;
-      console.log("here", params)
       this.getVehiculo();
 
     });
@@ -43,7 +42,6 @@ export class DetailsVehiculoComponent implements OnInit {
   getVehiculo() {
     this.vehiculoService.readById(this.vehiculoId).subscribe((vehiculo) => {
       this.vehiculo = vehiculo.body[0];
-      console.log("here2", vehiculo)
     })
   }
 }

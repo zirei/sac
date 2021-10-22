@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
       if (user) {
         this.user = Object(user.multiFactor).user;
         this.currentUser = user.displayName;
-        console.log(user);
         this.isLogin = true
       } else {
         this.isLogin = false
@@ -41,11 +40,10 @@ export class HomeComponent implements OnInit {
   getVehiculos() {
     this.localizationService.read().subscribe((data) => {
       this.vehiculos = data.body
-      console.log("vehiculos ->", this.vehiculos)      
     })
     if(this.vehiculos.length >0){
     }else{
-      console.log("agregar un loader en el mapa")
+      //console.log("agregar un loader en el mapa")
       // this.localizationService.readGeo().subscribe((data) => {
       //   this.vehiculos = data.body
       //   console.log("vehiculos ->", this.vehiculos)      

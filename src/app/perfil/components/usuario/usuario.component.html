@@ -1,17 +1,46 @@
 <div *ngIf="!isLogin">
-    <div class="container-login">
-        <span class="perfil-titles"> Para acceder a la información del sitio, debe iniciar sesión:</span>
-        <a class="btn btn-primary" (click)="logIn()">Iniciar sesión con google</a>
-    </div>
+  <div class="container-login">
+    <span class="perfil-titles"> Para acceder a la información del sitio, debe iniciar sesión:</span>
+    <a class="btn btn-dark" (click)="logIn()">Iniciar sesión con google</a>
+  </div>
 </div>
 <div *ngIf="isLogin">
 
-    <div class="container-logout">
-        <p>Bienvenido ...
-
-            contenido
-
-        </p>
-        <a class="btn btn-primary" (click)="logOut()" *ngIf="isLogin">Cerrar Sesión</a>
+  <div class="container-logout">
+    <h1 class="center-forms">User Data</h1>
+    <br>
+    <div class="input-group mb-3 image-profile">
+      <img [src]="profileImage">
     </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-name">Name</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" [(ngModel)]="user.name">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-id">ID</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" [(ngModel)]="user.userID">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-cel">Cel</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" [(ngModel)]="user.cel">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-email">Email</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" [(ngModel)]="user.email">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-vehiculoId">VehiculoId</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" disabled [(ngModel)]="user.vehiculoId">
+    </div>
+    <div class="col-auto profile-asistence" *ngIf="user._id">
+      <button type="submit" class="btn btn-dark mb-3 button-design" (click)="updateUser()">Update profile</button>
+      <button type="submit" class="btn btn-dark mb-3 button-design" (click)="messaje()">Solicitar asistencia(Grúa)</button>
+    </div>
+    <a class="btn btn-dark button-design" (click)="logOut()" *ngIf="isLogin">Cerrar Sesión</a>
+  </div>
 </div>

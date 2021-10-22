@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   vehiculoApi: 'https://obscure-plains-82299.herokuapp.com',
   userApi: 'https://limitless-gorge-95066.herokuapp.com',
-  geoApi: 'http://localhost:3002',
+  geoApi: 'http://ec2-18-209-66-239.compute-1.amazonaws.com',
   firebaseConfig: {
     apiKey: "AIzaSyDUmTKS4UanGOuE1MeIHtEp7sOF2BbrCaQ",
     authDomain: "sac-vehiculos.firebaseapp.com",
