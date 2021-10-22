@@ -16,6 +16,7 @@ import { CoreModule } from './core/core.module';
 import { AuthenticationService } from './core/services/authentication/authentication.service';
 import { DefaultModule } from './default/default.module';
 import { PerfilModule } from './perfil/perfil.module';
+import { PopupService } from './popup.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PerfilModule } from './perfil/perfil.module';
   ],
   providers: [
     MarkerService,
-    AuthenticationService
+    AuthenticationService,
+    PopupService
   ],
   bootstrap: [AppComponent]
 })

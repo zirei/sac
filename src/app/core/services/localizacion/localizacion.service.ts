@@ -12,8 +12,8 @@ export class LocalizacionService {
   read() {
     return this.http.get<any>(`${environment.vehiculoApi}/localizacion`);
   }
-  // readGeo() {
-  //   console.log("i{m GEOOO")
-  //   return this.http.get<any>(`${environment.geoApi}/rbgeoback`);
-  // }
+  // Quedo como una solicitud tipo http y los cors la bloquean.
+  searchChargeStation(){
+    return this.http.get<any>(`${environment.chargeStationApi}/api/EstacionCarga/Consultar`);
+  }
 }

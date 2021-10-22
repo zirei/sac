@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Geo } from '../../models/geo.model';
+import { Mail } from '../../models/mail.model';
+import { Sms } from '../../models/sms.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +12,18 @@ export class GeoService {
   constructor(private http: HttpClient) { }
 
   sendGrua(userData: Geo) {
-    return this.http.post<any>(`${environment.geoApi}:8090/truck/request`, userData);
+    return this.http.post<any>(`${environment.geoApi}/truck/request`, userData);
   }
 
-  // read() {
-  //   return this.http.get<any>(`${environment.geoApi}/rbgeoback`);
-  // }
+  sendMail(mail: Mail) {
+    return this.http.post<any>(`${environment.geoApi}/messages/sendMail`,  mail);
+  }
 
-  // readById(vehiculoId: String) {
-  //   return this.http.get<any>(`${environment.geoApi}/rbgeoback/${vehiculoId}`);
-  // }
+  sendSms(sms: Sms) {
+    return this.http.post<any>(`${environment.geoApi}/messages/sendSms`,  sms);
+  }
 
-  // update(vehiculo: Geo) {
-  //   return this.http.put<any>(`${environment.geoApi}/rbgeoback/${vehiculo._id}`, vehiculo)
-  // }
-
-  // delete(id: String) {
-  //   return this.http.delete<any>(`${environment.geoApi}/rbgeoback/${id}`);
-  // }
+  control() {
+    return this.http.get<any>(`${environment.geoApi}/messages/`);
+  }
 }

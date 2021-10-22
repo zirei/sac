@@ -73,8 +73,6 @@ export class UsuarioComponent implements OnInit {
         if (this.user.userID != 'false') {
           //encontrar usuario
           this.getUserID();
-        } else {
-          //crear usuario.
         }
       } else {
         this.isLogin = false
@@ -131,31 +129,12 @@ export class UsuarioComponent implements OnInit {
       if (index != -1) {
         let element = data.body.splice(index, 1);
         this.grua.currentLocation = `${element[0].latitude},${element[0].longitude}`
-        // this.user = element[0];
         this.gruaService.sendGrua(this.grua).subscribe((response) => {
           alert(`Revise su linea de celular para más detalles`);
         })
       }
     })
   }
-
-  // getVehiculo() {
-  //   this.vehiculoService.readById(this.vehiculoId).subscribe((vehiculo) => {
-  //     this.vehiculo = vehiculo.body[0];
-  //   })
-  // }
-  // createVehiculo() {
-  //   this.vehiculoService.create(this.vehiculo).subscribe((response) => {
-  //     alert(`El Vehiculo: ${response.body.vehiculoId} con el id: ${response.body._id} fue creado con éxito`)
-  //   })
-  //   // this.geoService.create(this.vehiculo).subscribe((response) => {})
-  // }
-
-  // updateVehiculo() {
-  //   this.vehiculoService.update(this.vehiculo).subscribe(() => {
-  //     alert(`Vehiculo ${this.vehiculo.vehiculoId} actualizado con éxito`)
-  //   })
-  // }
 
   logIn() {
     this.authService.login();
