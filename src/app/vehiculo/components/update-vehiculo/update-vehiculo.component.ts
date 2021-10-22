@@ -85,8 +85,14 @@ export class UpdateVehiculoComponent implements OnInit {
     });
   }
   getVehiculo() {
-    this.vehiculoService.readById(this.vehiculoId).subscribe((vehiculo) => {
-      this.vehiculo = vehiculo.body[0];
+    this.vehiculoService.read().subscribe((vehiculo) => {
+      let index = vehiculo.body.map((vehiculo: any) => vehiculo._id).indexOf(this.vehiculoId)
+      if (index != -1) {
+        let element = vehiculo.body.splice(index, 1);
+        this.vehiculo = element[0];
+      } else {
+        alert("No se ha encontrado el vehiculo que busca en nuestro catalogo");
+      }
 
     })
   }

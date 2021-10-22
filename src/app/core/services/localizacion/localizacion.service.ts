@@ -10,7 +10,6 @@ export class LocalizacionService {
   constructor(private http: HttpClient) { }
   
   read() {
-    console.log("i{m here")
     return this.http.get<any>(`${environment.vehiculoApi}/localizacion`);
   }
   // readGeo() {

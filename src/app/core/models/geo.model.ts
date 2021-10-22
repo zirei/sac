@@ -1,6 +1,6 @@
 export interface Geo {
   _id?: String;
-  vehiculoId?: String;
-  latitude?: Number;
-  longitude?: Number;
+  clientName?: String;
+  currentLocation?: String;
+  phoneNumber?: String;
 }

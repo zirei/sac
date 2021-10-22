@@ -1,17 +1,38 @@
-.perfil-titles{
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;    
+.perfil-titles {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
-.container-login{
-    text-align: center;
-    margin: 2rem;
-    display: block;
-    line-height: 3;
+.container-login {
+  text-align: center;
+  margin: 2rem;
+  display: block;
+  line-height: 3;
 }
-.container-logout{
-    text-align: center;
-    margin: 2rem;
-    display: block;
-    line-height: 3;
+.container-logout {
+  text-align: center;
+  margin: 2rem;
+  display: block;
+  line-height: 3;
+}
+.image-profile {
+  text-align: center;
+  display: block;
+}
+.input-group-text {
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+}
+.center-forms {
+  text-align: center;
+}
+.profile-asistence button {
+  margin: 1rem;
+}
+.profile-asistence {
+  margin: 1rem 0 2rem 0;
+}
+.button-design{
+  width: 13rem;
 }
