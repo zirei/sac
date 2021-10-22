@@ -8,6 +8,7 @@ export const environment = {
   chargeStationApi: 'https://localizacionestacioncargawebapi.azurewebsites.net',
   userApi: 'https://limitless-gorge-95066.herokuapp.com',
   geoApi: 'http://ec2-18-209-66-239.compute-1.amazonaws.com:8090',
+  // geoApi: 'https://ec2-18-209-66-239.compute-1.amazonaws.com:8443',
   firebaseConfig: {
     apiKey: "AIzaSyDUmTKS4UanGOuE1MeIHtEp7sOF2BbrCaQ",
     authDomain: "sac-vehiculos.firebaseapp.com",

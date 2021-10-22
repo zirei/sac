@@ -13,7 +13,9 @@
     </div>
   </div>
   <!-- Call to Action-->
-  <app-map *ngIf="vehiculos.length > 0" [myLocation]="vehiculos" [myChargeStation]="chargeStations"></app-map>
+  <div *ngIf="isRdy">
+    <app-map [myLocation]="vehiculos" [myChargeStation]="chargeStations"></app-map>
+  </div>
   <div class="card text-white bg-secondary my-5 py-4 text-center">
     <div class="card-body">
       <p class="text-white m-0">Somos una red global de alquiler de vehículos que se creó para simplificar el arrendar autos y tener la mejor asistencia alrededor del mundo </p>
