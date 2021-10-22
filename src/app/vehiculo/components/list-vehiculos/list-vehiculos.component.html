@@ -28,7 +28,7 @@
         </td>
         <!-- <td class="text-clickeable" [routerLink]="['/vehiculo/', vehiculo._id, 'details']">Details</td> -->
         <td class="text-clickeable" *ngIf="isAdmin" [routerLink]="['/vehiculo/', vehiculo._id, 'update']">Update</td>
-        <td class="text-clickeable" *ngIf="!isAdmin" (click)="alertmessage()" >Update</td>
+        <td class="text-clickeable" *ngIf="!isAdmin" (click)="alertmessage()">Update</td>
         <td class="text-clickeable" (click)="deleteVehiculo(vehiculo._id)">Eliminar</td>
       </tr>
     </tbody>
