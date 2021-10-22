@@ -9,3 +9,7 @@
   color: rgb(95, 95, 240);
   cursor: pointer;
 }
+.text-clickeable-sneaky {
+  color: rgb(255, 255, 255);
+  cursor: default;
+}

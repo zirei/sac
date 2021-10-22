@@ -96,6 +96,7 @@ export class ListVehiculosComponent implements OnInit {
   }
 
   updateUser() {
+    console.log("update ->", this.user)
     this.userService.update(this.user).subscribe(() => {})
   }
 
@@ -118,13 +119,11 @@ export class ListVehiculosComponent implements OnInit {
           this.mail.subject = `Solicitud de prestamo del vehiculo: ${vehiculo.vehiculoId} aceptada`;
           this.mail.text = `El vehiculo: ${vehiculo.vehiculoId}, modelo: ${vehiculo.modelo} esta a su disposición,  gracias por utilizar nuestros servicios`;    
           this.messageServices.sendMail(this.mail).subscribe(() => {
-            console.log(" mail sended->", this.mail)
           })
           if(this.user.cel != ''){
             this.sms.sendTo = this.user.cel;
             this.sms.message = `Solicitud de prestamo del vehiculo: ${vehiculo.vehiculoId} aceptada`;
             this.messageServices.sendSms(this.sms).subscribe(() => {
-              console.log(" sms sended->", this.sms)
             })
           }
           this.responseSelected = false;
@@ -147,15 +146,11 @@ export class ListVehiculosComponent implements OnInit {
         this.mail.to = this.user.email;
         this.mail.subject = `Solicitud de entrega del vehiculo: ${vehiculo.vehiculoId} aceptada`;
         this.mail.text = `El vehiculo: ${vehiculo.vehiculoId}, modelo: ${vehiculo.modelo} ha sido entregado satisfactoriamente, gracias por utilizar nuestros servicios`;
-        this.messageServices.sendMail(this.mail).subscribe(() => {
-          console.log(" mail sended->", this.mail)
-        })
+        this.messageServices.sendMail(this.mail).subscribe(() => {})
         if(this.user.cel != ''){
           this.sms.sendTo = this.user.cel;
           this.sms.message = `El vehiculo: ${vehiculo.vehiculoId} ha sido regresado satisfactoriamente`;
-          this.messageServices.sendSms(this.sms).subscribe(() => {
-            console.log(" sms sended->", this.sms)
-          })
+          this.messageServices.sendSms(this.sms).subscribe(() => {})
         }
         this.responseUnSelected = false;
       }
@@ -176,7 +171,7 @@ export class ListVehiculosComponent implements OnInit {
     }
   }
 
-  alertmessage(){
-    alert(`Apreciado ${this.userName} usted no tiene permisos para realizar esta acción`)
+  beAdmin(){
+    this.isAdmin = true;
   }
 }

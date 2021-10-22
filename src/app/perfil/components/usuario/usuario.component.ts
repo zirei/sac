@@ -112,7 +112,11 @@ export class UsuarioComponent implements OnInit {
   messaje() {
     this.grua.clientName = this.user.name;
     this.grua.phoneNumber = this.user.cel;
-    this.getVehiculoID();
+    if(this.grua.phoneNumber != ''){
+      this.getVehiculoID();
+    }else{
+      alert(`Apreciado ${this.grua.clientName} debe disponer de una linea movil, para tener acceso al servicio de grúa, ya que es el medio que utilizaremos para mantenerlo informado`)
+    }
   }
   getVehiculoID() {
     this.vehiculoId = this.user.vehiculoId;
