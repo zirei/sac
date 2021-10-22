@@ -62,21 +62,21 @@ export class MapComponent implements AfterViewInit {
     this.initMap();
   }
   
-  addMarker(latitude: any, longitude: any) {
-    this.markerService.makeMarkers(this.map, latitude, longitude, iconCar);
+  addMarker(latitude: any, longitude: any, name: any) {
+    this.markerService.makeMarkers(this.map, latitude, longitude, iconCar, name );
   }
-  addMarkerStation(latitude: any, longitude: any) {
-    this.markerService.makeMarkers(this.map, latitude, longitude, iconStation);
+  addMarkerStation(latitude: any, longitude: any, name: any) {
+    this.markerService.makeMarkers(this.map, latitude, longitude, iconStation, name);
   }
 
   addMarkers() {
     this.myLocation.map((point) => {
       if(point.userID == ''){
-        this.addMarker(point.latitude, point.longitude)
+        this.addMarker(point.latitude, point.longitude, `VehiculoID: ${point.vehiculoId}`)
       }
     })
     this.myChargeStation.map((point) => {
-      this.addMarkerStation(point.dblLatitud, point.dblLongitud)
+      this.addMarkerStation(point.dblLatitud, point.dblLongitud, `Charging station ${point.strNombre}`)
     })
   }
 }

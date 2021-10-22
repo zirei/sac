@@ -118,7 +118,4 @@ export class HomeComponent implements OnInit {
       //console.log("agregar un loader en el mapa")
     }
   }
-  // makeMarkers(map: any, latitude: any, lon: any): void {
-
-
 }
