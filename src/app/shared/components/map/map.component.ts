@@ -55,19 +55,23 @@ export class MapComponent implements AfterViewInit {
   }
   
   addMarker(latitude: any, longitude: any, name: any) {
+    console.log("mark1")
     this.markerService.makeMarkers(this.map, latitude, longitude, iconCar, name );
   }
   addMarkerStation(latitude: any, longitude: any, name: any) {
+    console.log("mark2")
     this.markerService.makeMarkers(this.map, latitude, longitude, iconStation, name);
   }
 
   addMarkers() {
     this.myLocation.map((point) => {
+      console.log("mark1")
       if(point.userID == ''){
         this.addMarker(point.latitude, point.longitude, `VehiculoID: ${point.vehiculoId}`)
       }
     })
     this.myChargeStation.map((point) => {
+      console.log("mark2")
       this.addMarkerStation(point.dblLatitud, point.dblLongitud, `Charging station ${point.strNombre}`)
     })
   }
