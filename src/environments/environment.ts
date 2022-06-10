@@ -12,7 +12,7 @@ export const environment = {
   userApi: 'https://limitless-gorge-95066.herokuapp.com',
   // geoApi: 'http://ec2-18-209-66-239.compute-1.amazonaws.com:8090',
   // geoApi: 'https://ec2-18-209-66-239.compute-1.amazonaws.com:8443',
-  geoApi: 'http://54.172.51.77:8090',
+  geoApi: 'http://52.45.151.78:8090',
   firebaseConfig: {
     apiKey: "AIzaSyDUmTKS4UanGOuE1MeIHtEp7sOF2BbrCaQ",
     authDomain: "sac-vehiculos.firebaseapp.com",
