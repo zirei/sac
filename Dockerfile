@@ -1,5 +1,5 @@
 FROM golang as builder
-RUN go get github.com/zirei/redBicicletas
+RUN go get github.com/zirei/sac
 
 FROM node:14-stretch-slim
 

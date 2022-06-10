@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  vehiculoApi: 'https://obscure-plains-82299.herokuapp.com',
+  vehiculoApi: 'http://localhost:8082',
+  // vehiculoApi: 'https://obscure-plains-82299.herokuapp.com',
   chargeStationApi: 'https://localizacionestacioncargawebapi.azurewebsites.net',
   userApi: 'https://limitless-gorge-95066.herokuapp.com',
   // geoApi: 'http://ec2-18-209-66-239.compute-1.amazonaws.com:8090',
