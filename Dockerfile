@@ -1,27 +1,20 @@
-FROM golang as builder
-RUN go get github.com/zirei/redBicicletas
-
-FROM node:14-stretch-slim
-
-# Create app directory
-RUN mkdir /app
+# Stage 1 - the build process
+FROM node:14 as build-deps
 WORKDIR /app
-
-#Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json /app/
-
+COPY . ./
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
 
-# Bundle app source
-COPY . /app/
+#add enviroment variables
+RUN npm run build --env=prod
 
-ENV NODE_ENV QA
-ENV PORT 8082
+# Stage 2 - the production environment
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build-deps /app/dist/sacVehiculos /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
-EXPOSE 8082
 
-CMD [ "node", "server.js" ]
+
+
+

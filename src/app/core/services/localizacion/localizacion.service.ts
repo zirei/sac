@@ -14,6 +14,7 @@ export class LocalizacionService {
   }
   // Quedo como una solicitud tipo http y los cors la bloquean.
   searchChargeStation(){
-    return this.http.get<any>(`${environment.chargeStationApi}/api/EstacionCarga/Consultar`);
+    return this.http.get<any>(`${environment.chargeStationApi}/prod/v1/estacion_carga`);
+    // return this.http.get<any>(`${environment.chargeStationApi}/api/EstacionCarga/Consultar`);
   }
 }

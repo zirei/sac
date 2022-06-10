@@ -85,10 +85,10 @@ export class ListVehiculosComponent implements OnInit {
   getUserByID(V_ID: any, seleccion: boolean) {
     this.userService.readById(this.currentUserID.userID).subscribe((user) => {
       this.user = user.body[0];
-      if(seleccion){
+      if (seleccion) {
         this.user.vehiculoId = V_ID;
         this.updateUser();
-      }else{
+      } else {
         this.user.vehiculoId = "";
         this.updateUser();
       }
@@ -97,17 +97,19 @@ export class ListVehiculosComponent implements OnInit {
 
   updateUser() {
     console.log("update ->", this.user)
-    this.userService.update(this.user).subscribe(() => {})
+    this.userService.update(this.user).subscribe(() => { })
   }
 
   seleccionarVehiculo(vehiculoId: any) {
+    // console.log("seleccionar ->", vehiculoId)
     this.isSendMessage = false;
     let index = this.listVehiculos.map((vehiculo: any) => vehiculo.userID).indexOf(this.currentUserID.userID)
     this.listVehiculos.map((vehiculo) => {
-      if (index != -1 && this.isSendMessage == false) {      
+      if (index != -1 && this.isSendMessage == false) {
         alert(`Apreciado ${this.userName}, solo puede alquilar un vehiculo a la vez.`)
         this.isSendMessage = true;
       } else {
+        // console.log("else ->", vehiculoId, "vehiculo._id ->", vehiculo._id, "send Message ->", this.isSendMessage);
         if (vehiculo._id === vehiculoId && this.isSendMessage == false) {
           this.getUserByID(vehiculo._id, true);
           let vehiculoData = vehiculo;
@@ -116,11 +118,12 @@ export class ListVehiculosComponent implements OnInit {
             alert(`Vehiculo ${this.currentData.vehiculoId} reservado con éxito al user: ${this.userName} con el id: ${this.currentData.userID}`)
           })
           this.mail.to = this.user.email;
+          // console.log("mail ->", this.mail)
           this.mail.subject = `Solicitud de prestamo del vehiculo: ${vehiculo.vehiculoId} aceptada`;
-          this.mail.text = `El vehiculo: ${vehiculo.vehiculoId}, modelo: ${vehiculo.modelo} esta a su disposición,  gracias por utilizar nuestros servicios`;    
+          this.mail.text = `El vehiculo: ${vehiculo.vehiculoId}, modelo: ${vehiculo.modelo} esta a su disposición,  gracias por utilizar nuestros servicios`;
           this.messageServices.sendMail(this.mail).subscribe(() => {
           })
-          if(this.user.cel != ''){
+          if (this.user.cel != '') {
             this.sms.sendTo = this.user.cel;
             this.sms.message = `Solicitud de prestamo del vehiculo: ${vehiculo.vehiculoId} aceptada`;
             this.messageServices.sendSms(this.sms).subscribe(() => {
@@ -146,11 +149,11 @@ export class ListVehiculosComponent implements OnInit {
         this.mail.to = this.user.email;
         this.mail.subject = `Solicitud de entrega del vehiculo: ${vehiculo.vehiculoId} aceptada`;
         this.mail.text = `El vehiculo: ${vehiculo.vehiculoId}, modelo: ${vehiculo.modelo} ha sido entregado satisfactoriamente, gracias por utilizar nuestros servicios`;
-        this.messageServices.sendMail(this.mail).subscribe(() => {})
-        if(this.user.cel != ''){
+        this.messageServices.sendMail(this.mail).subscribe(() => { })
+        if (this.user.cel != '') {
           this.sms.sendTo = this.user.cel;
           this.sms.message = `El vehiculo: ${vehiculo.vehiculoId} ha sido regresado satisfactoriamente`;
-          this.messageServices.sendSms(this.sms).subscribe(() => {})
+          this.messageServices.sendSms(this.sms).subscribe(() => { })
         }
         this.responseUnSelected = false;
       }
@@ -171,7 +174,7 @@ export class ListVehiculosComponent implements OnInit {
     }
   }
 
-  beAdmin(){
+  beAdmin() {
     this.isAdmin = true;
   }
 }

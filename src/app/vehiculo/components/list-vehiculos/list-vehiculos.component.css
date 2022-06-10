@@ -13,3 +13,8 @@
   color: rgb(255, 255, 255);
   cursor: default;
 }
+
+.button-login{
+  display: block;
+  margin: 32px auto;
+}
