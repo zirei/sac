@@ -5,7 +5,6 @@ COPY . ./
 RUN npm install
 
 #add enviroment variables
-ARG vehiculoApi='http://localhost:8082'
 RUN npm run build --env=prod
 
 # Stage 2 - the production environment
